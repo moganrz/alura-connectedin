@@ -9,12 +9,6 @@ def index(request):
 def exibir(request, perfil_id):
     #print("Entrou e deu certo o id de perfil {}".format(perfil_id))
 
-    perfil = Perfil()
-
-    if perfil_id == 1:
-        perfil = Perfil('Mogan', 'moganrz@gmail.com', '123456', 'Mogans LTDA')
-
-    if perfil_id == 2:
-        perfil = Perfil('Aline', 'aline@gmail.com', '888888', 'Aline LTDA')
+    perfil = Perfil.objects.get(id=perfil_id)
 
     return render(request, 'perfil.html', {'perfil' : perfil})
