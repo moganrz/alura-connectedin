@@ -7,5 +7,14 @@
 </head>
 <body>
     <h1>Bem Vindo ao ConnectedIn</h1>
+    {% if perfis != none %}
+        <ul>
+            {% for perfil in perfis %}
+                <li><a href="{% url 'exibir' perfil.id %}">{{ perfil.nome|upper }} / {{ perfil.email }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum perfil encontrado</p>
+    {% endif %}
 </body>
 </html>
